@@ -1,0 +1,44 @@
+services:
+  haproxy:
+    build: ./haproxy
+    links:
+      - app01
+      - app02
+      - app03
+    ports:
+    - "4000:80"
+
+  app01:
+    build: .
+    links:
+      - redis
+      - mongo
+    expose:
+      - "4000"
+
+  app02:
+    build: .
+    links:
+      - redis
+      - mongo
+    expose:
+      - "4000"
+
+  app03:
+    build: .
+    links:
+      - redis
+      - mongo
+    expose:
+      - "4000"
+
+  redis:
+    image: redis
+    expose:
+      - "6379"
+      
+  mongo:
+    image: mongo
+    expose:
+      - "27017"
+

@@ -1,0 +1,83 @@
+<%- include('header'); %>
+
+
+  <div class="container" style="max-width:800px;">
+    <div class="mb-3 d-flex justify-content-end align-items-center">
+      <div id="active-user" style="margin-right:10px;"></div>
+      <div class="btn btn-danger" id="leave">Çıkış yap</div>
+    </div>
+    <div class="row gx-3">
+      <div class="col-4">
+        <div class="border p-2" style="height: 600px;">
+          <h5>Çevrimiçi Kullanıcılar: <span id="total"></span> </h5>
+          <hr/>
+          <div id="online-users" class="online-users">
+          <ul style="list-style: none;">
+          </ul>
+        </div>
+        </div>
+      </div>
+      <div class="col-8">
+         <div class="border p-2" style="height: 600px;">
+          <h5>Log kayıtları</h5>
+          <hr/>
+           <div id="log-list" class="log-list">
+          <ul  style="list-style: none;">
+          </ul>
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- Modal -->
+<div class="modal fade" id="userDetailsModal" tabindex="-1" aria-labelledby="userDetailsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="userDetailsModalLabel">Üye Detayları</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+         <div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="firstName">İsim</label>
+        <input type="text" class="form-control" id="firstName" name="firstName" disabled>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="lastName">Soyisim</label>
+        <input type="text" class="form-control" id="lastName" name="lastName" disabled>
+      </div>
+    </div>
+    <div class="form-group" >
+      <label for="email">Eposta Adresi</label>
+      <input type="email" class="form-control" id="email" name="email" disabled>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-6">
+        <label for="language">Dil</label>
+        <input type="text" class="form-control" id="language" name="language" disabled>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="country">Ülke</label>
+        <input type="text" class="form-control" id="country" name="country" disabled>
+      </div>
+    </div>
+  </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Kapat</button>
+      </div>
+    </div>
+  </div>
+</div>
+  
+  <script type="text/javascript">
+    window.currentUser =  <%- JSON.stringify(user) %>
+  </script>
+  <script src="/bootstrap/bootstrap.bundle.min.js" type="text/javascript"></script>
+  <script src="/socket.io/socket.io.js" type="text/javascript"></script>
+  <script src="/app.js" type="text/javascript"></script>
+</body>
+</html>
