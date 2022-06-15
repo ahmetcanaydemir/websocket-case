@@ -17,7 +17,7 @@ Just use `docker-compose up -d --build` at the root of the repository. You can a
 
 ### Login
 
-![Login](./assets/Login.png)
+![Login](./assets/login.png)
 
 ### App
 
